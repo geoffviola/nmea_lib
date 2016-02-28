@@ -1,0 +1,5 @@
+nmea_lib
+========
+
+A set of parser for NMEA messages coming from a GNSS receiver.
+
