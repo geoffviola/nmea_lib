@@ -1,0 +1,16 @@
+<?xlm version="1.0"?>
+<package>
+	<name>nmea_lib</name>
+	<version>0.0.0</version>
+	<description>A tested, pure functional library for generating and 
+		parsing NMEA messages</description>
+	<maintainer email="geoffrey.viola@asirobots.com">geoffrey viola
+	</maintainer>
+	<author>Geoffrey Viola</author>
+	<license>BSD</license>
+	<url>none</url>
+	<buildtool_depend>catkin</buildtool_depend>
+	<build_depend>roslint</build_depend>
+	<export>
+	</export>
+</package>
