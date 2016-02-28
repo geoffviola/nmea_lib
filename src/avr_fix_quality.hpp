@@ -1,0 +1,15 @@
+// Copyright 2016 Geoffrey Lawrence Viola
+
+#ifndef NMEALIB_AVRFIXQUALITY_HPP
+#define NMEALIB_AVRFIXQUALITY_HPP
+
+enum AvrFixQuality
+{
+  AVR_INVALID = 0,
+  AVR_GPS,
+  AVR_RTK_FLOAT,
+  AVR_RTK_FIXED,
+  AVR_DGPS
+};
+
+#endif // NMEALIB_AVRFIXQUALITY_HPP

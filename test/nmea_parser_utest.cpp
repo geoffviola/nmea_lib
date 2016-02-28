@@ -18,7 +18,7 @@ TEST(NmeaParser, parseValidAvr)
   EXPECT_DOUBLE_EQ(149.4688, parsed_message.yaw);
   EXPECT_DOUBLE_EQ(0.0134, parsed_message.tilt);
   EXPECT_DOUBLE_EQ(60.191, parsed_message.range);
-  EXPECT_EQ(AvrMessageData::RTK_FIX, parsed_message.fixQuality);
+  EXPECT_EQ(AVR_RTK_FIXED, parsed_message.fixQuality);
   EXPECT_DOUBLE_EQ(2.5, parsed_message.pdop);
   EXPECT_EQ(6U, parsed_message.numSatellites);
 }
@@ -37,7 +37,7 @@ TEST(NmeaParser, parseValidGgaNoTimeSinceLastDgpsNoDgpsStationIDValid)
   EXPECT_DOUBLE_EQ(123519.0, parsed_message.timestamp);
   EXPECT_DOUBLE_EQ(48.1173, parsed_message.latitude);
   EXPECT_DOUBLE_EQ(11.0 + (31.0 / 60.0), parsed_message.longitude);
-  EXPECT_EQ(GgaMessageData::GPS_FIX, parsed_message.fixQuality);
+  EXPECT_EQ(GGA_GPS, parsed_message.fixQuality);
   EXPECT_EQ(8U, parsed_message.numSatellites);
   EXPECT_DOUBLE_EQ(0.9, parsed_message.hdop);
   EXPECT_DOUBLE_EQ(545.4, parsed_message.altitude);
@@ -54,7 +54,7 @@ TEST(NmeaParser, parseValidGgaTimeSinceLastDgpsNoDgpsStationIDValid)
   EXPECT_DOUBLE_EQ(123519.0, parsed_message.timestamp);
   EXPECT_DOUBLE_EQ(48.1173, parsed_message.latitude);
   EXPECT_DOUBLE_EQ(11.0 + (31.0 / 60.0), parsed_message.longitude);
-  EXPECT_EQ(GgaMessageData::GPS_FIX, parsed_message.fixQuality);
+  EXPECT_EQ(GGA_GPS, parsed_message.fixQuality);
   EXPECT_EQ(8U, parsed_message.numSatellites);
   EXPECT_DOUBLE_EQ(0.9, parsed_message.hdop);
   EXPECT_DOUBLE_EQ(545.4, parsed_message.altitude);
@@ -72,7 +72,7 @@ TEST(NmeaParser, parseValidGgaNoTimeSinceLastDgpsDgpsStationIDValid)
   EXPECT_DOUBLE_EQ(123519.0, parsed_message.timestamp);
   EXPECT_DOUBLE_EQ(48.1173, parsed_message.latitude);
   EXPECT_DOUBLE_EQ(11.0 + (31.0 / 60.0), parsed_message.longitude);
-  EXPECT_EQ(GgaMessageData::GPS_FIX, parsed_message.fixQuality);
+  EXPECT_EQ(GGA_GPS, parsed_message.fixQuality);
   EXPECT_EQ(8U, parsed_message.numSatellites);
   EXPECT_DOUBLE_EQ(0.9, parsed_message.hdop);
   EXPECT_DOUBLE_EQ(545.4, parsed_message.altitude);

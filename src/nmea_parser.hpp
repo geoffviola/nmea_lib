@@ -1,18 +1,14 @@
 // Copyright 2016 Geoffrey Lawrence Viola
 
+#ifndef NMEALIB_NMEAPARSER_HPP
+#define NMEALIB_NMEAPARSER_HPP
+
 #include <string>
+#include "avr_fix_quality.hpp"
+#include "gga_fix_quality.hpp"
 
 struct AvrMessageData
 {
-  enum AvrFixQuality
-  {
-    INVALID = 0,
-    GPS,
-    RTK_FLOAT,
-    RTK_FIX,
-    DGPS
-  };
-
   inline AvrMessageData()
       : valid(false)
   {
@@ -44,19 +40,6 @@ struct AvrMessageData
 
 struct GgaMessageData
 {
-  enum FixQuality
-  {
-    INVALID = 0,
-    GPS_FIX,
-    DGPS_FIX,
-    PPS_FIX,
-    REAL_TIME_KINEMATIC,
-    FLOAT_RTK,
-    DEAD_RECKONING,
-    MANUAL_INPUT,
-    SIMULATION
-  };
-
   GgaMessageData()
       : valid(false)
       , timeSinceLastDgpsValid(false)
@@ -65,7 +48,7 @@ struct GgaMessageData
   }
 
   GgaMessageData(double const in_timestamp, double const in_latitude,
-                 double const in_longitude, FixQuality const fix_quality,
+                 double const in_longitude, GgaFixQuality const fix_quality,
                  uint16_t const num_satellites, double const in_hdop,
                  double const in_altitude, double const geoid_height)
       : valid(true)
@@ -98,7 +81,7 @@ struct GgaMessageData
   double timestamp;
   double latitude;
   double longitude;
-  FixQuality fixQuality;
+  GgaFixQuality fixQuality;
   uint16_t numSatellites;
   double hdop;
   double altitude;
@@ -147,3 +130,5 @@ struct VtgMessageData
 AvrMessageData parse_avr(std::string const &message);
 GgaMessageData parse_gga(std::string const &message);
 VtgMessageData parse_vtg(std::string const &message);
+
+#endif // NMEALIB_NMEAPARSER_HPP

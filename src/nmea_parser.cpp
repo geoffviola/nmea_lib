@@ -41,7 +41,7 @@ AvrMessageData parse_avr(string const &message)
     next_n += 1U;
     previous_n = next_n;
     next_n = message.find(",", next_n);
-    output.fixQuality = static_cast<AvrMessageData::AvrFixQuality>(
+    output.fixQuality = static_cast<AvrFixQuality>(
         stod(message.substr(previous_n, next_n - previous_n)));
     next_n += 1U;
     previous_n = next_n;
@@ -117,7 +117,7 @@ GgaMessageData parse_gga(string const &message)
         output.longitude = get<1>(longitude_v_a) * longitude_multiplier;
         previous_n = next_n;
         next_n = message.find(",", next_n + 1U);
-        output.fixQuality = static_cast<GgaMessageData::FixQuality>(
+        output.fixQuality = static_cast<GgaFixQuality>(
             stoi(message.substr(previous_n + 1, next_n - previous_n - 1)));
         previous_n = next_n;
         next_n = message.find(",", next_n + 1U);
