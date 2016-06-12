@@ -5,6 +5,7 @@ find_package(catkin REQUIRED COMPONENTS roslint)
 
 catkin_package(
 	INCLUDE_DIRS include
+	LIBRARIES nmea_lib
 )
 
 add_definitions("-std=c++11 -Wall -Werror")
@@ -22,4 +23,9 @@ catkin_add_gtest(nmea_builder_utest test/nmea_builder_utest.cpp)
 target_link_libraries(nmea_builder_utest nmea_lib)
 
 roslint_cpp()
+
+install(TARGETS nmea_lib
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+)
 
