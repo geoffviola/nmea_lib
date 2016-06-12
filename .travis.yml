@@ -58,5 +58,4 @@ after_success:
   - lcov --list coverage.info # debug before upload
   - mv coverage.info $TRAVIS_BUILD_DIR
   - cd $TRAVIS_BUILD_DIR
-  - pwd
   - coveralls-lcov --repo-token ${COVERALLS_TOKEN} coverage.info # uploads to coveralls
