@@ -46,9 +46,9 @@ before_script:
   - rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 script:
   - cd ~/catkin_ws
-  - catkin_make -DCOVERAGE=TRUE
+  - catkin_make 
   # Testing: Use both run_tests (to see the output) and test (to error out).
-  - catkin_make run_tests  # This always returns 0, but looks pretty.
+  - catkin_make -DCOVERAGE=TRUE run_tests  # This always returns 0, but looks pretty.
   - catkin_make test  # This will return non-zero if a test fails.
   - catkin_make roslint
 after_success:
