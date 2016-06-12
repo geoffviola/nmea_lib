@@ -9,9 +9,7 @@ catkin_package(
 )
 
 set(COVERAGE "OFF" CACHE STRING "Enable coverage generation.")
-message("coverage = ${COVERAGE}")
 if(COVERAGE)
-	message("coverage enabled")
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -fprofile-arcs -ftest-coverage")
 endif()
 
