@@ -4,7 +4,7 @@
 #include <sstream>
 #include <iomanip>
 #include <cmath>
-#include "nmea_builder.hpp"
+#include "nmea_lib/nmea_builder.hpp"
 
 using std::string;
 using std::stringstream;

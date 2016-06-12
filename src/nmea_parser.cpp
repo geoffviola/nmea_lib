@@ -6,7 +6,7 @@
 #include <cmath>
 #include <algorithm>
 #include <string>
-#include "nmea_parser.hpp"
+#include "nmea_lib/nmea_parser.hpp"
 
 using std::string;
 using std::vector;
