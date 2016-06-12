@@ -9,12 +9,13 @@ catkin_package(
 
 add_definitions("-std=c++11 -Wall -Werror")
 
+include_directories(include/nmea_lib src)
+
 add_library(nmea_lib
 	src/nmea_builder.cpp
 	src/nmea_parser.cpp
 )
 
-include_directories(include src)
 catkin_add_gtest(nmea_parser_utest test/nmea_parser_utest.cpp)
 target_link_libraries(nmea_parser_utest nmea_lib)
 catkin_add_gtest(nmea_builder_utest test/nmea_builder_utest.cpp)
