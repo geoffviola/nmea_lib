@@ -8,6 +8,11 @@ catkin_package(
 	LIBRARIES nmea_lib
 )
 
+set(COVERAGE "OFF" CACHE STRING "Enable coverage generation.")
+if("${COVERAGE}" STREQUAL "ON")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage -fprofile-arcs -ftest-coverage")
+endif()
+
 add_definitions("-std=c++11 -Wall -Werror")
 
 include_directories(include/nmea_lib src)
